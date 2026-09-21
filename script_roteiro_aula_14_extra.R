@@ -56,7 +56,21 @@ dados_aula14$F_IDADE <- cut(
 
 # Ao terminar a Tarefa 3 commit com a mensagem " script - tarefa 1 a 3" e envie para o repositório Aula_14_Extra
 
- 
+tabela_pam <- read.csv2("Tabela_PAM.csv")
+str(tabela_pam)
+View(tabela_pam)
+dados_aula14 <- merge(dados_aula14, tabela_pam, by = c("IDADE_PROPRIETARIO", "SEXO_PROPRIETARIO"), all.x = TRUE)
+dados_aula14$PAM <- NA
+dados_aula14$PAM[ dados_aula14$TIPO_VEICULO == "Carro" & dados_aula14$VALOR_VEICULO < dados_aula14$VALOR_P10] <- "PIC"
+dados_aula14$PAM[ dados_aula14$TIPO_VEICULO == "Carro" & dados_aula14$VALOR_VEICULO >= dados_aula14$VALOR_P10 & dados_aula14$VALOR_VEICULO <= dados_aula14$VALOR_P90] <- "AIC"
+dados_aula14$PAM[ dados_aula14$TIPO_VEICULO == "Carro" & dados_aula14$VALOR_VEICULO > dados_aula14$VALOR_P90] <- "GIC"
+
+
+#View(dados_aula14)
+#table(dados_aula14$PAM, useNA = "ifany")
+
+
+
 # Tarefa 4: Criar o banco de dados BACO_AULA14_RJ, POR MUNICÍPIO, com as seguintes variáveis listadas abaixo. 
 # Variáveis que se referem a medidas de posição e de dispersão devem ser calculadas sem considerar NAs
 
