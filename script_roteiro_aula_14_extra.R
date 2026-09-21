@@ -6,6 +6,10 @@
 
 # Ao terminar a Tarefa 1 commit com a mensagem " script - tarefa 1" e envie para o repositório Aula_14_Extra
 
+dados_aula14 <- read.csv2("banco 2 = SINASC.csv")
+str(dados_aula14)
+View(dados_aula14)
+
 
 # Tarefa 2: Manipulação dos dados
 # Padronizar as categorias SEXO_PROPRIETARIO para Masculino e Feminino
