@@ -8,7 +8,7 @@
 
 dados_aula14 <- read.csv2("banco 2 = SINASC.csv")
 str(dados_aula14)
-View(dados_aula14)
+#View(dados_aula14)
 
 
 # Tarefa 2: Manipulação dos dados
@@ -17,6 +17,36 @@ View(dados_aula14)
 # Criar uma nova variável em dados_aula14 F_IDADE categorizando as idades em: 22 a 34, 35 a 45
 
 # Ao terminar a Tarefa 2 commit com a mensagem " script - tarefa 1 a 2" e envie para o repositório Aula_14_Extra
+
+dados_aula14$SEXO_PROPRIETARIO[
+  dados_aula14$SEXO_PROPRIETARIO == "feminino"
+] <- "Feminino"
+
+dados_aula14$SEXO_PROPRIETARIO[
+  dados_aula14$SEXO_PROPRIETARIO == "masculino"
+] <- "Masculino"
+
+dados_aula14$TIPO_VEICULO[
+  dados_aula14$TIPO_VEICULO == 1
+] <- "Carro"
+
+dados_aula14$TIPO_VEICULO[
+  dados_aula14$TIPO_VEICULO == 2
+] <- "Moto"
+
+dados_aula14$F_IDADE <- cut(
+  dados_aula14$IDADE_PROPRIETARIO,
+  breaks = c(21, 34, 45),
+  labels = c("22 a 34", "35 a 45")
+)
+
+
+#table(dados_aula14$SEXO_PROPRIETARIO, useNA = "ifany")
+#table(dados_aula14$TIPO_VEICULO, useNA = "ifany")
+#table(dados_aula14$F_IDADE, useNA = "ifany")
+#View(dados_aula14)
+
+
 
 
 # Tarefa 3: Leitura do banco de dados Tabela_PAM.csv (com o nome tabela_pam) e:
