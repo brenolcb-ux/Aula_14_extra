@@ -104,6 +104,22 @@ dados_aula14$PAM[ dados_aula14$TIPO_VEICULO == "Carro" & dados_aula14$VALOR_VEIC
 
 # Ao terminar a Tarefa 4 commit com a mensagem " script - tarefa 1 a 4" e envie para o repositório Aula_14_Extra
 
+UF_33 <- data.frame(
+  ANO = 2025,
+  NÍVEL ="UF",
+  CÓDIGO = 33,
+  
+  TVV = nrow(dados_aula14),
+  
+  TVRC = sum(complete.cases(
+    dados_aula14[, c ("MUNICIPIO", "SEXO_PROPRIETÁRIO", 
+                      "IDADE_PROPRIETÁRIO", "TIPO_VEÍCULO",
+                      "VALOR_VEICULO")]
+  )),
+  
+  TVFV = sum(dados_aula14$SEXO_PROPRIETARIO == "Feminino", na.rm = TRUE),
+  ))
+)
 
 # Tarefa 5: Exportar o banco de dados BANCO_AULA14_RJ com o nome BANCO_AULA14_RJ.csv
 
